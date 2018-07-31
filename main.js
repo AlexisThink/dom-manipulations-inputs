@@ -58,3 +58,29 @@ var carSelected = cars.selectedIndex;
   edmunds.textContent = cars[carSelected].dataset.edmunds;
 
 })
+
+//TASK #5
+
+var inputGuest = document.querySelector('#add-guest input');
+var listGuest = document.querySelector('.guest-list');
+var counter = 0;
+
+inputGuest.addEventListener('keypress', function(event){
+  var current = event.keyCode;
+  
+  if(current === 13){
+    var guest = inputGuest.value;
+    counter += 1;
+
+    var li = document.createElement('li');
+    li.textContent = guest;
+    li.id = 'add-guest';
+
+    if(counter === 2){
+      li.className = 'guest';
+      counter = 0;
+    }
+    listGuest.appendChild(li);
+    inputGuest.value = "";
+  }
+})
