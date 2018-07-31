@@ -37,11 +37,24 @@ document.querySelector("#calculate-items button").addEventListener('click',funct
   showSuma.textContent = "$ " + suma;
 })
 
+  var imgCar = document.createElement('img');
+  document.querySelector('.img-box').appendChild(imgCar);
 
 document.querySelector("#select-to-show-more button").addEventListener('click',function(){
   // TASK #4
-var cars = document.querySelectorAll('.selection option');
-var imgCar = document.createElement('img')
+var cars = document.querySelector('.selection');
+var carSelected = cars.selectedIndex;
 
-console.log(imgCar);
+  imgCar.src = "./images/" + cars[carSelected].dataset.img;
+
+  var modelName = document.querySelector('.model');
+  var msrp = document.querySelector('.msrp');
+  var mpg = document.querySelector('.mpg');
+  var edmunds = document.querySelector('.edmunds');
+
+  modelName.textContent = cars[carSelected].value;
+  msrp.textContent = cars[carSelected].dataset.msrp;
+  mpg.textContent = cars[carSelected].dataset.mpg;
+  edmunds.textContent = cars[carSelected].dataset.edmunds;
+
 })
